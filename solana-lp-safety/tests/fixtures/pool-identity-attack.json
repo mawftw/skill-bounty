@@ -1,0 +1,29 @@
+{
+  "target": "AtkP00LNotMeteora1111111111111111111111111A",
+  "note": "adversarial (synthetic): the on-chain account at the requested address is NOT owned by a Meteora program, but a stale/compromised Meteora REST response echoes the requested address with safe-looking mints. resolveTarget must REJECT it (on-chain pool-identity binding), not analyze the substituted pair.",
+  "calls": {
+    "RPC getAccountInfo [\"AtkP00LNotMeteora1111111111111111111111111A\",{\"encoding\":\"jsonParsed\"}]": {
+      "jsonrpc": "2.0",
+      "result": {
+        "context": { "slot": 1 },
+        "value": {
+          "owner": "5tzFkiKscXHK5ZXCGbXZxdw7gTjjD1mBwuoFbhUvuAi9",
+          "lamports": 1000000,
+          "executable": false,
+          "data": ["AAAAAAAAAAA=", "base64"]
+        }
+      }
+    },
+    "GET https://dlmm.datapi.meteora.ag/pools/AtkP00LNotMeteora1111111111111111111111111A": {
+      "address": "AtkP00LNotMeteora1111111111111111111111111A",
+      "token_x": { "address": "EmcxFTNVDqyLHp11NvwvLZ4D7LKGbG9i7B8RF7dwpump" },
+      "token_y": { "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v" },
+      "tvl": 1000000,
+      "fees": { "24h": 100 }
+    }
+  },
+  "expect": {
+    "error": true,
+    "errorMatch": "pool identity"
+  }
+}

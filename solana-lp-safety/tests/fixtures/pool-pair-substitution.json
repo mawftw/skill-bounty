@@ -1,0 +1,111 @@
+{
+  "target": "5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6",
+  "note": "adversarial (synthetic): a GENUINE DLMM LbPair address (real on-chain account, correct discriminator), but the Meteora REST substitutes a different base mint. The on-chain pair (wSOL/USDC) does not match the API pair → resolveTarget must REJECT (on-chain pool-pair binding), not analyze the substituted pair.",
+  "calls": {
+    "RPC getAccountInfo [\"5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6\",{\"encoding\":\"jsonParsed\"}]": {
+      "jsonrpc": "2.0",
+      "result": {
+        "context": {
+          "slot": 429380728,
+          "apiVersion": "3.1.9"
+        },
+        "value": {
+          "lamports": 1261261952,
+          "data": [
+            "IQsxYrVlsQ0QJx4AWAKIE8DUAQDgkwQAeFX+/4iqAQDoAwAAAAAAAA8VAAAPFQAAGeb//wAAAADjo0BqAAAAAAAAAAAAAAAA/wQAABnm//8EAAAAAAAAAAabiFf+q4GE+2h/Y0YYwDXaxDncGus7VZig8AAAAAABxvp6877brTo9ZfNqq8l0MbG75MLS9uDkfKYCA0UvXWHJSJlnLnmUpTrMngO1OaOUlAPGmZRz7OrcxR6p6JFrJq9frZbeoPqr6Upv3p3ixa4nPIa3aZLTj4H3hSgAdOmvExj0SQAAAAB7VXsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZ93Bg5F5w1GjB12qcQbOR1fpZKy3cDiSwnLzzQjuM8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///////////wcAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACOTBWoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+            "base64"
+          ],
+          "owner": "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo",
+          "executable": false,
+          "rentEpoch": 18446744073709552000,
+          "space": 904
+        }
+      },
+      "id": 1
+    },
+    "GET https://dlmm.datapi.meteora.ag/pools/5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6": {
+      "address": "5rCf1DM8LjKTw4YqhnoLcngyZYeNnQqztScTogYHAS6",
+      "name": "SOL-USDC",
+      "token_x": {
+        "address": "EmcxFTNVDqyLHp11NvwvLZ4D7LKGbG9i7B8RF7dwpump"
+      },
+      "token_y": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "decimals": 6,
+        "is_verified": true,
+        "holders": 5248202,
+        "freeze_authority_disabled": false,
+        "total_supply": 8043070619.820501,
+        "price": 0.9997739765708772,
+        "market_cap": 8041252697.418333
+      },
+      "reserve_x": "EYj9xKw6ZszwpyNibHY7JD5o3QgTVrSdcBp1fMJhrR9o",
+      "reserve_y": "CoaxzEh8p5YyGLcj36Eo3cUThVJxeKCs7qvLAGDYwBcz",
+      "token_x_amount": 29467.438406535,
+      "token_y_amount": 908231.437749,
+      "created_at": 1711766862000,
+      "reward_mint_x": "11111111111111111111111111111111",
+      "reward_mint_y": "11111111111111111111111111111111",
+      "pool_config": {
+        "bin_step": 4,
+        "base_fee_pct": 0.04,
+        "max_fee_pct": 0,
+        "protocol_fee_pct": 5,
+        "collect_fee_mode": 0
+      },
+      "dynamic_fee_pct": 0.000014,
+      "tvl": 2985359.2996176304,
+      "current_price": 70.51924262167591,
+      "apr": 0.16381146370232533,
+      "apy": 81.74286139594354,
+      "has_farm": false,
+      "farm_apr": 0,
+      "farm_apy": 0,
+      "volume": {
+        "30m": 124927.22674547338,
+        "1h": 241538.65487260628,
+        "2h": 532640.1432033827,
+        "4h": 1259660.8104736465,
+        "12h": 6554873.447486458,
+        "24h": 13036447.227752823
+      },
+      "fees": {
+        "30m": 45.44134798195877,
+        "1h": 87.72373023204963,
+        "2h": 194.341216470927,
+        "4h": 462.96820023984975,
+        "12h": 2488.1795923499035,
+        "24h": 4890.360765477129
+      },
+      "protocol_fees": {
+        "30m": 5.0045270790602805,
+        "1h": 9.632207942080097,
+        "2h": 21.400220748143976,
+        "4h": 51.13771050911019,
+        "12h": 275.88185918280016,
+        "24h": 541.4333750450669
+      },
+      "fee_tvl_ratio": {
+        "30m": 0.001522139997948621,
+        "1h": 0.0029384647349913772,
+        "2h": 0.006509809941329961,
+        "4h": 0.015507955786063924,
+        "12h": 0.08334606801494861,
+        "24h": 0.16381146370232533
+      },
+      "cumulative_metrics": {
+        "volume": 22606676480.78504,
+        "fees": 10033147.199641736
+      },
+      "is_blacklisted": false,
+      "launchpad": "",
+      "tags": []
+    }
+  },
+  "expect": {
+    "error": true,
+    "errorMatch": "pool pair mismatch"
+  }
+}

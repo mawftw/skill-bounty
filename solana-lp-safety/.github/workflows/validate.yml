@@ -1,0 +1,47 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Read-only; no secrets needed — the blocking gates are fully offline.
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install (clean, lockfile-exact)
+        run: npm ci
+
+      # The blocking gate — identical to `npm run validate` locally, fully offline:
+      # typecheck · 88 unit + 19 integration + hard-fail recall · signature demo ·
+      # secret/.env scan · zero runtime dependencies. No network, no key.
+      - name: Offline validation gate
+        run: npm run validate
+
+      # Judge-simulation: a fresh install must make the skill discoverable AND its CLI
+      # runnable from an unrelated working directory. Guards the install/usability layer
+      # so the "it doesn't actually install as a skill" regression can never ship.
+      - name: Install smoke (judge-simulation)
+        run: npm run smoke
+
+      - name: Dependency audit (high+)
+        run: npm audit --audit-level=high
+
+      # Informational, NOT merge-blocking: the live eval hits mainnet, so exact
+      # counts can drift with chain state / transient RPC. The deterministic proof
+      # is the offline gate above; this just reports the live with-skill vs baseline.
+      - name: Live eval (informational)
+        run: npm run eval
+        continue-on-error: true

@@ -1,0 +1,135 @@
+{
+  "target": "8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie",
+  "note": "DAMM v2 wrong-account-type: account is owned by the cp-amm program but its 8-byte discriminator is not a Pool account (e.g. a Position/Config) -> rejected before any pair check.",
+  "calls": {
+    "RPC getAccountInfo [\"8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie\",{\"encoding\":\"jsonParsed\"}]": {
+      "jsonrpc": "2.0",
+      "result": {
+        "context": {
+          "slot": 429544738,
+          "apiVersion": "3.1.9"
+        },
+        "value": {
+          "lamports": 8630401,
+          "data": [
+            "DpptBBGxbbyAGgYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpuIV/6rgYT7aH9jRhjANdrEOdwa6ztVmKDwAAAAAAHG+nrzvtutOj1l82qryXQxsbvkwtL24OR8pgIDRS9dYQ0NYQ5zgJFx/RmeIBqqgFav/PIludVxa5ECTKSrnPRGbnGR5t6lLn6PfGI9fA07q7s9iJzvjroOSTOA6HiedWMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALZ7npfR4pEtbMjH/6CGPST/8oRfhdNq1GLRQUghFYggMUlcAHxr99CSdQdVTwYAAAAAAAAAAAAAAAAAAAAAAADTs+YcAAAAABnvqQMAAAAAAAAAAAAAAAAAAAAAAAAAAEtS6W8fMrtDAAAAAAAAAAAqGi6JGarPqQAAAAAAAAAAPQ9/ifMQwUMAAAAAAAAAAMf1mmgAAAAAAQAAAAAAAAB6YgOdDjy7HQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIYFzfJv2OcDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAW2Idp6yo31zwdtJMAAAAAKoUxa+RAQAAAAAAAAAAAACvgq9aPQAAAAAAAAAAAAAAJKrLQWEAAABHynTUDgAAAAAAAAAAAAAAAAAAAAAAAAD0AAAAAAAAAAAAAAAAAAAAtnuel9HikS1syMf/oIY9JP/yhF+F02rUYtFBSCEViCC0zUocVA4AAKjkDiUAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+            "base64"
+          ],
+          "owner": "cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG",
+          "executable": false,
+          "rentEpoch": 18446744073709552000,
+          "space": 1112
+        }
+      },
+      "id": 1
+    },
+    "GET https://dlmm.datapi.meteora.ag/pools/8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie": {
+      "__error": "HTTP 404"
+    },
+    "GET https://damm-v2.datapi.meteora.ag/pools/8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie": {
+      "address": "8Pm2kZpnxD3hoMmt4bjStX2Pw2Z9abpbHzZxMPqxPmie",
+      "name": "SOL-USDC",
+      "token_x": {
+        "address": "So11111111111111111111111111111111111111112",
+        "name": "Wrapped SOL",
+        "symbol": "SOL",
+        "decimals": 9,
+        "is_verified": true,
+        "holders": 3820662,
+        "freeze_authority_disabled": true,
+        "total_supply": 629334613.7242466,
+        "price": 69.86585131522297,
+        "market_cap": 40556163859.4774
+      },
+      "token_y": {
+        "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "decimals": 6,
+        "is_verified": true,
+        "holders": 5248202,
+        "freeze_authority_disabled": false,
+        "total_supply": 7949456737.480096,
+        "price": 0.9996641606579136,
+        "market_cap": 7946786997.159435
+      },
+      "token_x_amount": 15763.289302174999,
+      "token_y_amount": 0.000041,
+      "created_at": 1754985927000,
+      "vault_x": "sx8hCMCauCdbZ7sVBGSJmH7b7JmtuN8d8YwYmBpuPLH",
+      "vault_y": "8S8HjmPZr8tNNEmMj5pcqS5RN73uF6DmcUDEDaoUQ1Ei",
+      "alpha_vault": "11111111111111111111111111111111",
+      "pool_config": {
+        "collect_fee_mode": 0,
+        "base_fee_mode": 0,
+        "base_fee_pct": 0.04,
+        "protocol_fee_pct": 20,
+        "partner_fee_pct": 0,
+        "referral_fee_pct": 0,
+        "dynamic_fee_initialized": false,
+        "compounding_fee_pct": 0,
+        "pool_type": 0,
+        "concentrated_liquidity": true,
+        "min_price": 70,
+        "max_price": 440,
+        "activation_type": 1,
+        "activation_point": 1754985927,
+        "has_fee_scheduler": false,
+        "is_fee_scheduler_active": false
+      },
+      "tvl": 1098480.6515316716,
+      "current_price": 70.00000000309794,
+      "has_farm": false,
+      "farm_apr": 0,
+      "farm_apy": 0,
+      "permanent_lock_liquidity": 206.66610634224486,
+      "vested_liquidity": {
+        "months_3": 1152.2038218881412,
+        "months_6": 25.77058991298072
+      },
+      "volume": {
+        "30m": 42275.720432868744,
+        "1h": 129241.45684465444,
+        "2h": 178940.2597685634,
+        "4h": 278813.53601365886,
+        "12h": 656160.4355144284,
+        "24h": 972191.4618603506
+      },
+      "fees": {
+        "30m": 13.531823748932595,
+        "1h": 41.36002978793941,
+        "2h": 57.268426114093124,
+        "4h": 89.23502277506456,
+        "12h": 210.0150773347592,
+        "24h": 311.16927449434894
+      },
+      "protocol_fees": {
+        "30m": 3.336858317613903,
+        "1h": 10.242431966258195,
+        "2h": 14.161926877570101,
+        "4h": 22.08873490809009,
+        "12h": 52.044766812490316,
+        "24h": 77.04782874383953
+      },
+      "fee_tvl_ratio": {
+        "30m": 0.0012318672823289545,
+        "1h": 0.0037652033042428978,
+        "2h": 0.005213421468483821,
+        "4h": 0.008123495179513567,
+        "12h": 0.01911868698296358,
+        "24h": 0.02832724218314347
+      },
+      "cumulative_metrics": {
+        "volume": 1357054248.040536,
+        "fees": 434423.66508480685
+      },
+      "is_blacklisted": false,
+      "launchpad": "",
+      "tags": []
+    }
+  },
+  "expect": {
+    "error": true,
+    "errorMatch": "is not a Pool account"
+  }
+}

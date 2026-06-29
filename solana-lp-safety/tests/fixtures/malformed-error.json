@@ -1,0 +1,26 @@
+{
+  "target": "Fake1111111111111111111111111111111111111111",
+  "note": "synthetic: address resolves to no account and no pool → analyze() throws",
+  "calls": {
+    "RPC getAccountInfo [\"Fake1111111111111111111111111111111111111111\",{\"encoding\":\"jsonParsed\"}]": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "context": {
+          "slot": 0
+        },
+        "value": null
+      }
+    },
+    "GET https://dlmm.datapi.meteora.ag/pools/Fake1111111111111111111111111111111111111111": {
+      "__error": "HTTP 404 (synthetic)"
+    },
+    "GET https://damm-v2.datapi.meteora.ag/pools/Fake1111111111111111111111111111111111111111": {
+      "__error": "HTTP 404 (synthetic)"
+    }
+  },
+  "expect": {
+    "error": true,
+    "errorMatch": "neither a recognizable"
+  }
+}

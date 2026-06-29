@@ -1,0 +1,31 @@
+{
+  "name": "solana-lp-safety-skill",
+  "version": "0.1.0",
+  "description": "Pre-LP due-diligence skill for Solana liquidity providers (Meteora DLMM/DAMM). Multi-source on-chain checks -> GO/CAUTION/NO-GO verdict.",
+  "type": "module",
+  "license": "MIT",
+  "author": "mawftw",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "safety-check": "tsx scripts/safety-check.ts",
+    "demo": "tsx scripts/demo.ts",
+    "eval": "tsx tests/eval.ts",
+    "eval:hardfail": "tsx tests/hardfail-eval.ts",
+    "record-fixture": "tsx scripts/record-fixture.ts",
+    "test:unit": "tsx tests/score.test.ts",
+    "test:integration": "tsx tests/integration.test.ts",
+    "test": "npm run test:unit && npm run test:integration && npm run eval:hardfail",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "validate": "bash scripts/validate.sh",
+    "smoke": "bash scripts/install-smoke.sh",
+    "pre-submit": "bash scripts/pre-submit.sh"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "dependencies": {}
+}
