@@ -1,25 +1,51 @@
-// Tiny fetch helper with timeout + an injectable transport seam.
-// Uses Node's global fetch (Node 18+). The default responder hits the real
-// network; tests and the fixture recorder swap it via setResponder so analyze()
-// can run fully offline against saved responses. See P0.2-REPLAY-SEAM-PLAN.md.
+// JSON transport seam for the LP-safety data sources. Production calls use
+// Node's global fetch; tests and the fixture recorder swap the responder so
+// analyze() can replay saved RPC/API responses without touching the network.
 
 export type Responder = (url: string, init: RequestInit) => Promise<any>;
 
-// The real network implementation (timeout-guarded) — the default transport.
-export async function liveFetch(
-  url: string,
-  init: RequestInit = {},
-  timeoutMs = 12000,
-): Promise<any> {
+const DEFAULT_TIMEOUT_MS = 12_000;
+
+async function withDeadline<T>(
+  timeoutMs: number,
+  call: (signal: AbortSignal) => Promise<T>,
+): Promise<T> {
   const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  const timer = setTimeout(() => {
+    ctrl.abort(new Error(`source request exceeded ${timeoutMs}ms`));
+  }, timeoutMs);
   try {
-    const res = await fetch(url, { ...init, signal: ctrl.signal });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
+    return await call(ctrl.signal);
   } finally {
     clearTimeout(timer);
   }
+}
+
+async function readJsonResponse(res: Response, url: string): Promise<any> {
+  if (!res.ok) {
+    const host = (() => {
+      try {
+        return new URL(url).host;
+      } catch {
+        return "source";
+      }
+    })();
+    throw new Error(`${host} HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+// Default network responder. Kept exported so the fixture recorder can capture
+// real source responses through exactly the same path the CLI uses.
+export async function liveFetch(
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = DEFAULT_TIMEOUT_MS,
+): Promise<any> {
+  return withDeadline(timeoutMs, async (signal) => {
+    const res = await fetch(url, { ...init, signal });
+    return readJsonResponse(res, url);
+  });
 }
 
 const live: Responder = (u, i) => liveFetch(u, i);
